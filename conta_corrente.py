@@ -11,3 +11,19 @@ class ContaCorrente(Conta, TributavelMixIn):
         self.depositar(valor)
         self.sacar(0.1)
         return valor
+
+    def saldo(self):
+        return self._saldo
+
+    def depositar(self, valor):
+        self._saldo += valor
+
+    def sacar(self, valor):
+        self._saldo -= valor
+        pass
+
+    def valor_imposto(self, conta):
+        # saldo = conta.saldo()
+        # taxa = (saldo - saldo * 0.2) + (saldo - saldo * 0.5) + 32
+        # conta.sacar(taxa)
+        return conta.saldo()

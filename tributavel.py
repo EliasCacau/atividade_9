@@ -1,3 +1,7 @@
-class Tributavel:
-    def valor_imposto(self, conta, taxa):
-        conta.sacar(taxa)
+import abc
+
+
+class Tributavel(abc.ABC):
+    @abc.abstractmethod
+    def valor_imposto(self, conta):
+        pass

@@ -1,13 +1,11 @@
 from conta import Conta
 
 
-class Banco(Conta):
-    def __init__(self, numero, nome, titular, saldo, limite):
-        super().__init__(titular, saldo, limite)
-        self._numero = numero
+class Banco:
+    def __init__(self, numero, nome):
+        self._num = num
         self._nome = nome
-        self.saldo = 0
         self._contas = []
+        self._caixa_geral = 0
 
-    def get_conta(self):
-        return self._contas.append(Conta.contas())
+
