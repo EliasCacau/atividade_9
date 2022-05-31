@@ -1,8 +1,9 @@
 from conta import Conta
+from manipulador import ManipuladorDeTributaveis
 from tributavelmixin import TributavelMixIn
 
 
-class ContaCorrente(Conta, TributavelMixIn):
+class ContaCorrente(Conta, TributavelMixIn, ManipuladorDeTributaveis):
     def __init__(self, numero, titular, saldo):
         super().__init__(numero, titular, saldo)
         #self._extrato = Historico()
