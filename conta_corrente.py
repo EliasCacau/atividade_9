@@ -23,5 +23,6 @@ class ContaCorrente(Conta, TributavelMixIn):
         self._saldo -= valor
 
     def valor_imposto(self):
-        ContaCorrente.sacar(conta)
-        return ContaCorrente.saldo()
+        ContaCorrente.sacar(self, self._saldo * 0.02)
+        return ContaCorrente.saldo(self)
+
