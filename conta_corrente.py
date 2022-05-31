@@ -3,8 +3,9 @@ from tributavelmixin import TributavelMixIn
 
 
 class ContaCorrente(Conta, TributavelMixIn):
-    def __init__(self, titular, saldo, numero):
-        super().__init__(titular, saldo, numero)
+    def __init__(self, numero, titular, saldo):
+        super().__init__(numero, titular, saldo)
+        #self._extrato = Historico()
 
     def atualiza(self, taxa):
         valor = self._saldo * taxa * 2
@@ -13,17 +14,14 @@ class ContaCorrente(Conta, TributavelMixIn):
         return valor
 
     def saldo(self):
-        return self._saldo
+        return print(self._saldo)
 
     def depositar(self, valor):
         self._saldo += valor
 
     def sacar(self, valor):
         self._saldo -= valor
-        pass
 
-    def valor_imposto(self, conta):
-        # saldo = conta.saldo()
-        # taxa = (saldo - saldo * 0.2) + (saldo - saldo * 0.5) + 32
-        # conta.sacar(taxa)
-        return conta.saldo()
+    def valor_imposto(self):
+        ContaCorrente.sacar(conta)
+        return ContaCorrente.saldo()

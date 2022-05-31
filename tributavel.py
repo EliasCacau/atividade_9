@@ -3,5 +3,5 @@ import abc
 
 class Tributavel(abc.ABC):
     @abc.abstractmethod
-    def valor_imposto(self, conta):
+    def valor_imposto(self):
         pass

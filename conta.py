@@ -1,23 +1,28 @@
+#from historico import Historico
 import abc
 
-class Conta(abc.ABC):
-    def __init__(self, n, cli, sal):
-        self._numero = n
-        self._titular = cli
-        self._saldo = sal
-        self._extrato = Historico()
 
+class Conta(abc.ABC):
+    def __init__(self, numero, titular, saldo):
+        self._numero = numero
+        self._titular = titular
+        self._saldo = saldo
+        #self._extrato = Historico()
+
+    @abc.abstractmethod
     def atualiza(self, taxa):
         pass
 
+    @property
     def saldo(self):
-        #return self._saldo
-        pass
+        return print(self._saldo)
 
+    @abc.abstractmethod
     def depositar(self, valor):
         #self._saldo += valor
         pass
 
+    @abc.abstractmethod
     def sacar(self, valor):
         # self._saldo -= valor
         pass

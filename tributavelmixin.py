@@ -2,5 +2,6 @@ from tributavel import Tributavel
 
 
 class TributavelMixIn(Tributavel):
-    def valor_imposto(self, conta):
+    def valor_imposto(self):
         pass
+
