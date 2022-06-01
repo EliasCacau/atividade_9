@@ -3,4 +3,4 @@ class ManipuladorDeTributaveis:
         total = 0
         for tr in lista_tributaveis:
             total += tr.valor_imposto()
-            return total
+        return print(f'Valor dos impostos: R$ {total:.2f}')

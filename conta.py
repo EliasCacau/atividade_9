@@ -1,35 +1,29 @@
-#from historico import Historico
+from historico import Historico
 import abc
 
 
 class Conta(abc.ABC):
+    __slots__ = ['_numero', '_titular', '_saldo', 'extrato']
     def __init__(self, numero, titular, saldo):
         self._numero = numero
         self._titular = titular
         self._saldo = saldo
-        #self._extrato = Historico()
+        self.extrato = Historico()
 
     @abc.abstractmethod
     def atualiza(self, taxa):
         pass
 
-    @property
     def saldo(self):
-        return print(self._saldo)
+        return print(f"Saldo na conta de {self._titular}: R$ {self._saldo:.2f}")
 
-    @abc.abstractmethod
     def depositar(self, valor):
-        #self._saldo += valor
-        pass
+        self._saldo += valor
+        self.extrato.transacoes.append(f'Depósito de R$ {valor:.2f} na conta de {self._titular}')
 
-    @abc.abstractmethod
     def sacar(self, valor):
-        # self._saldo -= valor
-        pass
-
-    # def contas(self):
-    #     # self._contas.append(self._numero)
-    #     # self._contas.append(self._titular)
-    #     # self._contas.append(self._saldo)
-    #     # return self._contas
-    #     pass
+        if self._saldo >= valor:
+            self._saldo = self._saldo - valor
+            self.extrato.transacoes.append(f'Saque de R$ {valor:.2f} na conta de {self._titular}')
+        else:
+            print("Saldo insuficiente!")
