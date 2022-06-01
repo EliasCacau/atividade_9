@@ -1,5 +1,4 @@
 from conta_corrente import ContaCorrente
-from tributavelmixin import TributavelMixIn
 from seguro_de_vida import SeguroDeVida
 from manipulador import ManipuladorDeTributaveis
 from conta_poupanca import ContaPoupanca
@@ -42,9 +41,7 @@ seguro3 = SeguroDeVida(3, 350, cc2)
 cc2.saldo()
 
 manipulador = ManipuladorDeTributaveis()
-tributos = []
-tributos.append(cc2)
-tributos.append(seguro3)
+tributos = [cc2, seguro3]
 manipulador.calcular_impostos(tributos)
 
 cc2.extrato.imprime()
